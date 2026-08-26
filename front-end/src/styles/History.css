@@ -1,0 +1,108 @@
+.history-page {
+  padding: 48px 24px 80px;
+}
+
+.history-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.filter-chip.active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+.history-table-card {
+  overflow-x: auto;
+}
+
+.history-empty {
+  padding: 48px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.history-table th {
+  text-align: left;
+  padding: 14px 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+.history-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tag-income {
+  background: #e5efe5;
+  color: #2f5c33;
+}
+
+.tag-essential {
+  background: #f4d9c9;
+  color: #a4441e;
+}
+
+.tag-non-essential {
+  background: #eee7d3;
+  color: #6b7b73;
+}
+
+.amount {
+  font-weight: 500;
+}
+
+.amount-pos {
+  color: #2f5c33;
+}
+
+.amount-neg {
+  color: var(--danger);
+}
+
+.row-delete {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 12.5px;
+  text-decoration: underline;
+}
+
+.row-delete:hover {
+  color: var(--danger);
+}

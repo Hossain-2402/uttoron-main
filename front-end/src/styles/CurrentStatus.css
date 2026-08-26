@@ -1,0 +1,48 @@
+.status-page {
+  padding: 48px 24px 80px;
+}
+
+.status-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.baseline-form {
+  padding: 32px;
+}
+
+.baseline-form h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.status-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 6px 0 18px;
+}
+
+.status-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.result-card {
+  padding: 24px 26px;
+}
+
+.result-value {
+  display: block;
+  font-size: 26px;
+  color: var(--ink);
+  margin: 8px 0 6px;
+}
+
+@media (max-width: 800px) {
+  .status-layout {
+    grid-template-columns: 1fr;
+  }
+}
