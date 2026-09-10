@@ -34,7 +34,7 @@ exports.getStatus = async (req, res) => {
       avgDailyEssential > 0 ? Math.floor(remainingResources / avgDailyEssential) : null;
 
     const baseline = user.baselineIncome || 0;
-    const recoveryPercent = baseline > 0 ? Math.min(100, Math.round((totalIncome / baseline) * 100)) : 0;
+    const recoveryPercent = baseline > 0 ? Math.min(100, Math.round((remainingResources / baseline) * 100)) : 0;
 
     res.json({
       baselineIncome: baseline,

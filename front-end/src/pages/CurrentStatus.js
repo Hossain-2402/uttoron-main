@@ -74,41 +74,8 @@ export default function CurrentStatus() {
           </button>
         </form>
 
-        {status && (
-          <div className="status-results">
-            <div className="card result-card">
-              <span className="eyebrow">Minimum survival budget</span>
-              <span className="data result-value">
-                ৳{status.minSurvivalBudgetMonthly.toLocaleString()} / month
-              </span>
-              <p className="status-note">
-                Based on your average essential spending of ৳{status.avgDailyEssential.toLocaleString()}
-                {" "}per day over the last 30 days.
-              </p>
-            </div>
-
-            <div className="card result-card">
-              <span className="eyebrow">Days your funds will last</span>
-              <span className="data result-value">
-                {status.daysFundsWillLast === null ? "Not enough data yet" : `${status.daysFundsWillLast} days`}
-              </span>
-              <p className="status-note">
-                Calculated from ৳{status.remainingResources.toLocaleString()} remaining against your
-                recent essential spending rate.
-              </p>
-            </div>
-
-            <div className="card result-card">
-              <span className="eyebrow">Recovery progress</span>
-              <span className="data result-value">{status.recoveryPercent}%</span>
-              <p className="status-note">
-                Total income logged so far, measured against your ৳{status.baselineIncome.toLocaleString()}
-                {" "}baseline.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
+	
+	</div>
     </div>
   );
 }
