@@ -85,7 +85,7 @@ export default function Dashboard() {
           <div className="stat-card card">
             <span className="eyebrow">Days funds will last</span>
             <span className="data stat-value">
-        	- 
+        	{status.daysFundsWillLast?.toLocaleString()}	
             </span>
             <span className="stat-note">Based on your recent essential spending</span>
           </div>

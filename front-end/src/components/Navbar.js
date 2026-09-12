@@ -44,6 +44,7 @@ export default function Navbar() {
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/add-income">Add Income</Link>
             <Link to="/add-expense">Add Expense</Link>
+            <Link to="/history">History</Link>
             <Link to="/current-status">Current Status</Link>
             <span className="nav-name">{user.name.split(" ")[0]}</span>
             <button className="btn btn-outline nav-logout" onClick={handleLogout}>
@@ -77,6 +78,7 @@ export default function Navbar() {
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/add-income">Add Income</Link>
             <Link to="/add-expense">Add Expense</Link>
+            <Link to="/history">History</Link>
             <Link to="/current-status">Current Status</Link>
             <div className="nav-mobile-foot">
               <span className="nav-name">{user.name.split(" ")[0]}</span>
