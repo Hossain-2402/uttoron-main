@@ -46,6 +46,7 @@ export default function Navbar() {
             <Link to="/add-expense">Add Expense</Link>
             <Link to="/history">History</Link>
             <Link to="/current-status">Current Status</Link>
+            <Link to="/history">History</Link>
             <span className="nav-name">{user.name.split(" ")[0]}</span>
             <button className="btn btn-outline nav-logout" onClick={handleLogout}>
               Sign out

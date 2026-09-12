@@ -22,7 +22,7 @@ export default function SignUp() {
 
     try {
       const res = await api.post("/auth/signup", { name, email, password });
-      login(res.data.user, res.data.token);
+      login(res.data.user);
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Could not create account");
