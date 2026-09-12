@@ -20,7 +20,7 @@ export default function SignIn() {
 
     try {
       const res = await api.post("/auth/signin", { email, password });
-      login(res.data.user, res.data.token);
+      login(res.data.user);
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Could not sign in");
