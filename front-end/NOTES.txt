@@ -1,0 +1,104 @@
+CurrentStatus.js
+line - 77
+
+        {status && (
+          <div className="status-results">
+            <div className="card result-card">
+              <span className="eyebrow">Minimum survival budget</span>
+              <span className="data result-value">
+                ৳{status.minSurvivalBudgetMonthly.toLocaleString()} / month
+              </span>
+              <p className="status-note">
+                Based on your average essential spending of ৳{status.avgDailyEssential.toLocaleString()}
+                {" "}per day over the last 30 days.
+              </p>
+            </div>
+
+            <div className="card result-card">
+              <span className="eyebrow">Days your funds will last</span>
+              <span className="data result-value">
+                {status.daysFundsWillLast === null ? "Not enough data yet" : `${status.daysFundsWillLast} days`}
+              </span>
+              <p className="status-note">
+                Calculated from ৳{status.remainingResources.toLocaleString()} remaining against your
+                recent essential spending rate.
+              </p>
+            </div>
+
+            <div className="card result-card">
+              <span className="eyebrow">Recovery progress</span>
+              <span className="data result-value">{status.recoveryPercent}%</span>
+              <p className="status-note">
+                Total income logged so far, measured against your ৳{status.baselineIncome.toLocaleString()}
+                {" "}baseline.
+              </p>
+            </div>
+          </div>
+        )}
+
+
+
+
+Example request bodies
+
+1. Sign Up — POST /api/auth/signup
+
+json
+{
+  "name": "Rahim Uddin",
+  "email": "rahim@example.com",
+  "password": "test1234"
+}
+
+2. Sign In — POST /api/auth/signin
+
+json
+{
+  "email": "rahim@example.com",
+  "password": "test1234"
+}
+
+3. Get Me — GET /api/auth/me
+No body.
+
+4. Add Income — POST /api/income
+
+json
+{
+  "amount": 5000,
+  "source": "Daily wage",
+  "isAid": false,
+  "date": "2026-08-20"
+}
+
+5. Get Incomes — GET /api/income
+No body.
+
+6. Delete Income — DELETE /api/income/:id
+No body. :id comes from a _id returned in step 4/5.
+
+7. Add Expense — POST /api/expense
+
+json
+{
+  "amount": 800,
+  "category": "Food",
+  "type": "essential",
+  "date": "2026-08-21"
+}
+
+8. Get Expenses — GET /api/expense
+No body.
+
+9. Delete Expense — DELETE /api/expense/:id
+No body. :id from step 7/8.
+
+10. Get Status — GET /api/status
+No body.
+
+11. Set Baseline — PUT /api/status/baseline
+
+json
+{
+  "baselineIncome": 15000
+}

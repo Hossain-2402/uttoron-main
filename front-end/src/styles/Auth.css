@@ -84,6 +84,41 @@
   font-weight: 600;
 }
 
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.password-toggle:hover {
+  color: var(--ink);
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+  border-radius: 6px;
+}
+
 @media (max-width: 480px) {
   .form-row {
     grid-template-columns: 1fr;
