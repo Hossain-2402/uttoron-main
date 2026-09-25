@@ -28,7 +28,13 @@ exports.addExpense = async (req, res) => {
 
 exports.getExpenses = async (req, res) => {
   try {
-    const expenses = await Expense.find({ user: req.userId }).sort({ date: -1 });
+    const filter = { user: req.userId };
+
+    if (req.query.type) {
+      filter.type = req.query.type;
+    }
+
+    const expenses = await Expense.find(filter).sort({ date: -1 });
     res.json({ expenses });
   } catch (err) {
     res.status(500).json({ message: "Could not fetch expenses" });

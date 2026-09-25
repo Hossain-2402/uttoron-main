@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PublicOnlyRoute from "./components/PublicOnlyRoute";
 
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
@@ -11,6 +12,7 @@ import AddIncome from "./pages/AddIncome";
 import AddExpense from "./pages/AddExpense";
 import CurrentStatus from "./pages/CurrentStatus";
 import History from "./pages/History";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -20,9 +22,30 @@ function App() {
           <Navbar />
           <main className="page-content">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/signup" element={<SignUp />} />
+              <Route
+                path="/"
+                element={
+                  <PublicOnlyRoute>
+                    <Home />
+                  </PublicOnlyRoute>
+                }
+              />
+              <Route
+                path="/signin"
+                element={
+                  <PublicOnlyRoute>
+                    <SignIn />
+                  </PublicOnlyRoute>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <PublicOnlyRoute>
+                    <SignUp />
+                  </PublicOnlyRoute>
+                }
+              />
               <Route
                 path="/dashboard"
                 element={
@@ -63,6 +86,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
         </div>

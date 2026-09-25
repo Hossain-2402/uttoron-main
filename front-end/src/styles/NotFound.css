@@ -1,0 +1,25 @@
+.not-found {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.not-found-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 48px 40px;
+  text-align: center;
+}
+
+.not-found-card h1 {
+  font-size: 32px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.not-found-card p {
+  margin-bottom: 28px;
+  font-size: 14.5px;
+}

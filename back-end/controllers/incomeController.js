@@ -24,7 +24,13 @@ exports.addIncome = async (req, res) => {
 
 exports.getIncomes = async (req, res) => {
   try {
-    const incomes = await Income.find({ user: req.userId }).sort({ date: -1 });
+    const filter = { user: req.userId };
+
+    if (req.query.isAid !== undefined) {
+      filter.isAid = req.query.isAid === "true";
+    }
+
+    const incomes = await Income.find(filter).sort({ date: -1 });
     res.json({ incomes });
   } catch (err) {
     res.status(500).json({ message: "Could not fetch income" });

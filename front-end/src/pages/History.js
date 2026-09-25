@@ -9,13 +9,29 @@ export default function History() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    Promise.all([api.get("/income"), api.get("/expense")])
-      .then(([incomeRes, expenseRes]) => {
-        setIncomes(incomeRes.data.incomes);
-        setExpenses(expenseRes.data.expenses);
-      })
-      .catch(() => setError("Could not load your history"));
-  }, []);
+    setError("");
+
+    if (filter === "all") {
+      Promise.all([api.get("/income"), api.get("/expense")])
+        .then(([incomeRes, expenseRes]) => {
+          setIncomes(incomeRes.data.incomes);
+          setExpenses(expenseRes.data.expenses);
+        })
+        .catch(() => setError("Could not load your history"));
+    } else if (filter === "income") {
+      setExpenses([]);
+      api
+        .get("/income")
+        .then((res) => setIncomes(res.data.incomes))
+        .catch(() => setError("Could not load your history"));
+    } else {
+      setIncomes([]);
+      api
+        .get(`/expense?type=${filter}`)
+        .then((res) => {console.log(res.data.expenses); setExpenses(res.data.expenses)})
+        .catch(() => setError("Could not load your history"));
+    }
+  }, [filter]);
 
   const entries = [
     ...incomes.map((i) => ({
@@ -33,8 +49,6 @@ export default function History() {
       date: e.date,
     })),
   ].sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  const filtered = entries.filter((e) => filter === "all" || e.kind === filter);
 
   async function handleDelete(entry) {
     try {
@@ -73,7 +87,7 @@ export default function History() {
       {error && <div className="auth-error">{error}</div>}
 
       <div className="card history-table-card">
-        {filtered.length === 0 ? (
+        {entries.length === 0 ? (
           <div className="history-empty">Nothing logged here yet.</div>
         ) : (
           <table className="history-table">
@@ -87,7 +101,7 @@ export default function History() {
               </tr>
             </thead>
             <tbody>
-              {filtered.map((entry) => (
+              {entries.map((entry) => (
                 <tr key={`${entry.kind}-${entry.id}`}>
                   <td className="data">{new Date(entry.date).toLocaleDateString()}</td>
                   <td>{entry.label}</td>
